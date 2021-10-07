@@ -55,8 +55,7 @@ public class Allocation {
 		this.end = end;
 	}
 
-	
-	
+		
 	@Override
 	public String toString() {
 		return "Allocation [id=" + id + ", day=" + day + ", start=" + start + ", end=" + end + "]";
