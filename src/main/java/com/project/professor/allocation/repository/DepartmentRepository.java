@@ -8,9 +8,6 @@ import org.springframework.stereotype.Repository;
 import com.project.professor.allocation.entity.Department;
 
 @Repository
-public interface DepartmentRepository extends JpaRepository<Department,Long>{
-
-	List<Department> findByNameContainingIgnoreCase(String name);
-
-	
+public interface DepartmentRepository extends JpaRepository<Department, Long> {
+List<Department> findByNameContainingIgnoreCase(String name);
 }

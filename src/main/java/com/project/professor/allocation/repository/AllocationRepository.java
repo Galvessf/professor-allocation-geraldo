@@ -8,9 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.project.professor.allocation.entity.Allocation;
 
 @Repository
-public interface AllocationRepository extends JpaRepository<Allocation,Long>{
-
-	List<Allocation> findByProfessorId(Long professorId);
-	List<Allocation> findByCourseId(Long courseId);
-	
+public interface AllocationRepository extends JpaRepository<Allocation, Long> {
+List<Allocation> findByProfessorId(Long professorId);
+List<Allocation> findByCourseId(Long courseId);
 }

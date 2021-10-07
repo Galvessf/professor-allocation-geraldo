@@ -1,7 +1,5 @@
 package com.project.professor.allocation.repository;
 
-import java.util.List;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -43,11 +41,6 @@ public class DepartmentRepositoyTest {
 		Department mamute2 = repository.save(mamute);
 		System.out.println(mamute2);
 	
-	}
-	
-	@Test
-	public void deleteById() {
-		repository.deleteById(1L);
 	
 	}
 	
