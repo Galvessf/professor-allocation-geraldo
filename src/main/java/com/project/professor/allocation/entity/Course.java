@@ -1,15 +1,25 @@
 package com.project.professor.allocation.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Course {
-	
+
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
+	@Column(name = "name", nullable = false, unique = true)
 	private String name;
-	
+
+	public Course() {
+		super();
+	}
+
 	public Course(Long id, String name) {
 		super();
 		this.id = id;
@@ -32,14 +42,8 @@ public class Course {
 		this.name = name;
 	}
 
-		
 	@Override
 	public String toString() {
 		return "Course [id=" + id + ", name=" + name + "]";
 	}
-
-	public Course () {
-		
-	}
-
 }
