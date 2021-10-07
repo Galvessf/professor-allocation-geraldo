@@ -55,14 +55,16 @@ public class Allocation {
 		this.end = end;
 	}
 
+	
+	
 	@Override
 	public String toString() {
-		return "Allocation [id=" + id + ", day=" + day + ", start=" + start + ", end=" + end + ", getId()=" + getId()
-				+ ", getDay()=" + getDay() + ", getStart()=" + getStart() + ", getEnd()=" + getEnd() + ", getClass()="
-				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+		return "Allocation [id=" + id + ", day=" + day + ", start=" + start + ", end=" + end + "]";
 	}
-	
-	
+
+	public Allocation () {
+		
+	}
 	
 		
 }

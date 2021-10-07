@@ -42,14 +42,15 @@ public class Professor {
 		this.cpf = cpf;
 	}
 
+	
+	
 	@Override
 	public String toString() {
-		return "Professor [id=" + id + ", name=" + name + ", cpf=" + cpf + ", getId()=" + getId() + ", getName()="
-				+ getName() + ", getCpf()=" + getCpf() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
-				+ ", toString()=" + super.toString() + "]";
+		return "Professor [id=" + id + ", name=" + name + ", cpf=" + cpf + "]";
 	}
-	
-	
-	
+
+	public Professor () {
+		
+	}
 	
 }
