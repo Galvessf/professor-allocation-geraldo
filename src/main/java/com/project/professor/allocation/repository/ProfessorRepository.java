@@ -11,7 +11,7 @@ import com.project.professor.allocation.entity.Professor;
 @Repository
 public interface ProfessorRepository extends JpaRepository<Professor,Long>{
 
-	//List<Allocation> findByProfessorId(Long professorId);
+	List<Allocation> findByProfessorId(Long professorId);
 
 	
 }

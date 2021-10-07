@@ -51,9 +51,5 @@ public class DepartmentRepositoyTest {
 	
 	}
 	
-	@Test
-	public void mamute() {
-	List <Department>list = repository.findByNameContainingIgnoreCase("mamute");
-	System.out.println(list);
-	}
+	
 }
