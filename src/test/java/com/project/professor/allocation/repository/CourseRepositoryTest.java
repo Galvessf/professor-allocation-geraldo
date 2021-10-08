@@ -1,6 +1,6 @@
 package com.project.professor.allocation.repository;
 
-import com.project.professor.allocation.entity.Department;
+import com.project.professor.allocation.entity.Course;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -15,18 +15,18 @@ import java.util.List;
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 @Rollback(false)
 @TestPropertySource(locations = "classpath:application.properties")
-public class DepartmentRepositoryTest {
+public class CourseRepositoryTest {
 
     @Autowired
-    DepartmentRepository departmentRepository;
+    CourseRepository courseRepository;
 
     @Test
     public void findAll() {
         // Act
-        List<Department> departments = departmentRepository.findAll();
+        List<Course> courses = courseRepository.findAll();
 
         // Print
-        departments.forEach(System.out::println);
+        courses.forEach(System.out::println);
     }
 
     @Test
@@ -35,50 +35,50 @@ public class DepartmentRepositoryTest {
         Long id = 1L;
 
         // Act
-        Department department = departmentRepository.findById(id).orElse(null);
+        Course course = courseRepository.findById(id).orElse(null);
 
         // Print
-        System.out.println(department);
+        System.out.println(course);
     }
 
     @Test
     public void findByNameContainingIgnoreCase() {
         // Arrange
-        String name = "Department";
+        String name = "Course";
 
         // Act
-        List<Department> departments = departmentRepository.findByNameContainingIgnoreCase(name);
+        List<Course> courses = courseRepository.findByNameContainingIgnoreCase(name);
 
         // Print
-        departments.forEach(System.out::println);
+        courses.forEach(System.out::println);
     }
 
     @Test
     public void save_create() {
         // Arrange
-        Department department = new Department();
-        department.setId(null);
-        department.setName("Department 1");
+        Course course = new Course();
+        course.setId(null);
+        course.setName("Course 1");
 
         // Act
-        department = departmentRepository.save(department);
+        course = courseRepository.save(course);
 
         // Print
-        System.out.println(department);
+        System.out.println(course);
     }
 
     @Test
     public void save_update() {
         // Arrange
-        Department department = new Department();
-        department.setId(1L);
-        department.setName("Department 2");
+        Course course = new Course();
+        course.setId(1L);
+        course.setName("Course 2");
 
         // Act
-        department = departmentRepository.save(department);
+        course = courseRepository.save(course);
 
         // Print
-        System.out.println(department);
+        System.out.println(course);
     }
 
     @Test
@@ -87,12 +87,12 @@ public class DepartmentRepositoryTest {
         Long id = 1L;
 
         // Act
-        departmentRepository.deleteById(id);
+        courseRepository.deleteById(id);
     }
 
     @Test
     public void deleteAll() {
         // Act
-        departmentRepository.deleteAllInBatch();
+        courseRepository.deleteAllInBatch();
     }
 }
