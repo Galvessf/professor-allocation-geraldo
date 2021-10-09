@@ -33,10 +33,8 @@ public class ProfessorRepositoryTest {
     public void findById() {
         // Arrange
         Long id = 1L;
-
         // Act
         Professor professor = professorRepository.findById(id).orElse(null);
-
         // Print
         System.out.println(professor);
     }

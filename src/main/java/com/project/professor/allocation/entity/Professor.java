@@ -86,4 +86,9 @@ public class Professor {
 		return "Professor [id=" + id + ", name=" + name + ", cpf=" + cpf + ", departmentId=" + departmentId
 				+ ", department=" + department + "]";
 	}
+
+	public Professor orElse(Object object) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
