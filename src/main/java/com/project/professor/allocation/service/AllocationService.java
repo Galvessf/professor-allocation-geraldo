@@ -22,4 +22,34 @@ public class AllocationService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	public List<Allocation> findByProfessor(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Allocation> findByCourse(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Allocation save(Allocation allocation) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Allocation update(Allocation allocation) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void deleteById(Long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void deleteAll() {
+		// TODO Auto-generated method stub
+		
+	}
 }
