@@ -52,4 +52,8 @@ public class AllocationService {
 		// TODO Auto-generated method stub
 		
 	}
+
+	public AllocationRepository getAllocationRepository() {
+		return AllocationRepository;
+	}
 }

@@ -42,4 +42,8 @@ public class CourseService {
 		// TODO Auto-generated method stub
 		
 	}
+
+	public CourseRepository getCourseRepository() {
+		return CourseRepository;
+	}
 }

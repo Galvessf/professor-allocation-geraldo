@@ -42,4 +42,8 @@ public class DepartmentService {
 		// TODO Auto-generated method stub
 		
 	}
+
+	public DepartmentRepository getDepartmentRepository() {
+		return departmentRepository;
+	}
 }

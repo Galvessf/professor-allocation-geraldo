@@ -52,4 +52,8 @@ public class ProfessorService {
 		// TODO Auto-generated method stub
 		
 	}
+
+	public ProfessorRepository getProfessorRepository() {
+		return professorRepository;
+	}
 }
