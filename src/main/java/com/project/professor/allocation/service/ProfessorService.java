@@ -63,7 +63,7 @@ public class ProfessorService {
 	private Professor saveInternal(Professor professor) {
 		professor = professorRepository.save(professor);
 
-		Department department = (Department) departmentService.findAll(professor.getDepartmentId());
+		Department department = departmentService.findById(professor.getDepartmentId());
 		professor.setDepartment(department);
 
 		return professor;
