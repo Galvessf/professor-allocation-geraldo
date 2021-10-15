@@ -17,16 +17,16 @@ public class DepartmentService {
         this.departmentRepository = departmentRepository;
     }
 
-    public List<Department> findAll(Long long1) {
-        if (long1 == null) {
+    public List<Department> findAll(String name) {
+        if (name == null) {
             return departmentRepository.findAll();
         } else {
-            return departmentRepository.findByNameContainingIgnoreCase(long1);
+            return departmentRepository.findByNameContainingIgnoreCase(name);
         }
     }
 
-    public Department findById(Long name) {
-        return departmentRepository.findById(name).orElse(null);
+    public Department findById(Long id) {
+        return departmentRepository.findById(id).orElse(null);
     }
 
     public Department save(Department department) {
@@ -57,9 +57,4 @@ public class DepartmentService {
         department = departmentRepository.save(department);
         return department;
     }
-
-	public List<Department> findAll(String name) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }
