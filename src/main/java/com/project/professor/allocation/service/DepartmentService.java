@@ -10,51 +10,51 @@ import com.project.professor.allocation.repository.DepartmentRepository;
 @Service
 public class DepartmentService {
 
-    private final DepartmentRepository departmentRepository;
+	private final DepartmentRepository departmentRepository;
 
-    public DepartmentService(DepartmentRepository departmentRepository) {
-        super();
-        this.departmentRepository = departmentRepository;
-    }
+	public DepartmentService(DepartmentRepository departmentRepository) {
+		super();
+		this.departmentRepository = departmentRepository;
+	}
 
-    public List<Department> findAll(String name) {
-        if (name == null) {
-            return departmentRepository.findAll();
-        } else {
-            return departmentRepository.findByNameContainingIgnoreCase(name);
-        }
-    }
+	public List<Department> findAll(Long id) {
+		if (id == null) {
+			return departmentRepository.findAll();
+		} else {
+			return departmentRepository.findByNameContainingIgnoreCase(id);
+		}
+	}
 
-    public Department findById(Long id) {
-        return departmentRepository.findById(id).orElse(null);
-    }
+	public Department findById(String name) {
+		return (departmentRepository.findById(name)).orElse(null);
+	}
 
-    public Department save(Department department) {
-        department.setId(null);
-        return saveInternal(department);
-    }
+	public Department save(Department department) {
+		department.setId(null);
+		return saveInternal(department);
+	}
 
-    public Department update(Department department) {
-        Long id = department.getId();
-        if (id != null && departmentRepository.existsById(id)) {
-            return saveInternal(department);
-        } else {
-            return null;
-        }
-    }
+	public Department update(Department department) {
+		Long id = department.getId();
+		if (id != null && departmentRepository.existsById(id)) {
+			return saveInternal(department);
+		} else {
+			return null;
+		}
+	}
 
-    public void deleteById(Long id) {
-        if (id != null && departmentRepository.existsById(id)) {
-            departmentRepository.deleteById(id);
-        }
-    }
+	public void deleteById(Long id) {
+		if (id != null && departmentRepository.existsById(id)) {
+			departmentRepository.deleteById(id);
+		}
+	}
 
-    public void deleteAll() {
-        departmentRepository.deleteAllInBatch();
-    }
+	public void deleteAll() {
+		departmentRepository.deleteAllInBatch();
+	}
 
-    private Department saveInternal(Department department) {
-        department = departmentRepository.save(department);
-        return department;
-    }
+	private Department saveInternal(Department department) {
+		department = departmentRepository.save(department);
+		return department;
+	}
 }

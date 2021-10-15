@@ -11,12 +11,12 @@ public class DepartmentRepository {
 		return null;
 	}
 
-	public Object findById(Long id) {
+	public Object findById(String name) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public List<Department> findByNameContainingIgnoreCase(String name) {
+	public List<Department> findByNameContainingIgnoreCase(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
