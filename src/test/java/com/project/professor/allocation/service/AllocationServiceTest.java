@@ -23,7 +23,7 @@ public class AllocationServiceTest {
     @Test
     public void findAll() {
         // Act
-        List<Allocation> allocations = AllocationService.findAll();
+        List<Allocation> allocations = allocationService.findAll();
 
         // Print
         allocations.forEach(System.out::println);
@@ -59,7 +59,7 @@ public class AllocationServiceTest {
         Long id = 1L;
 
         // Act
-        Allocation allocation = (Allocation) allocationService.findByCourse(id);
+        Allocation allocation = allocationService.findById(id);
 
         // Print
         System.out.println(allocation);

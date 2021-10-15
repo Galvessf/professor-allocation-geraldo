@@ -1,13 +1,44 @@
 package com.project.professor.allocation.repository;
 
-import com.project.professor.allocation.entity.Department;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
-@Repository
-public interface DepartmentRepository extends JpaRepository<Department, Long> {
+import com.project.professor.allocation.entity.Department;
 
-    List<Department> findByNameContainingIgnoreCase(String name);
+public class DepartmentRepository {
+
+	public List<Department> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object findById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Department> findByNameContainingIgnoreCase(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Department save(Department department) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void deleteAllInBatch() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void deleteById(Long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean existsById(Long id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

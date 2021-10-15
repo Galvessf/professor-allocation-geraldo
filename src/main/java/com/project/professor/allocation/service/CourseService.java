@@ -2,48 +2,59 @@ package com.project.professor.allocation.service;
 
 import java.util.List;
 
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.project.professor.allocation.entity.Course;
 import com.project.professor.allocation.repository.CourseRepository;
 
 @Service
-@Component
 public class CourseService {
-	private final CourseRepository CourseRepository;
 
-	public CourseService(CourseRepository CourseRepository) {
-		super();
-		this.CourseRepository = CourseRepository;
-	}
+    private final CourseRepository courseRepository;
 
-	public List<Course> findAll(Object object) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public CourseService(CourseRepository courseRepository) {
+        super();
+        this.courseRepository = courseRepository;
+    }
 
-	public Course save(Course course) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public List<Course> findAll(String name) {
+        if (name == null) {
+            return courseRepository.findAll();
+        } else {
+            return courseRepository.findByNameContainingIgnoreCase(name);
+        }
+    }
 
-	public Course update(Course course) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public Course findById(Long id) {
+        return courseRepository.findById(id).orElse(null);
+    }
 
-	public void deleteById(Long id) {
-		// TODO Auto-generated method stub
-		
-	}
+    public Course save(Course course) {
+        course.setId(null);
+        return saveInternal(course);
+    }
 
-	public void deleteAll() {
-		// TODO Auto-generated method stub
-		
-	}
+    public Course update(Course course) {
+        Long id = course.getId();
+        if (id != null && courseRepository.existsById(id)) {
+            return saveInternal(course);
+        } else {
+            return null;
+        }
+    }
 
-	public CourseRepository getCourseRepository() {
-		return CourseRepository;
-	}
+    public void deleteById(Long id) {
+        if (id != null && courseRepository.existsById(id)) {
+            courseRepository.deleteById(id);
+        }
+    }
+
+    public void deleteAll() {
+        courseRepository.deleteAllInBatch();
+    }
+
+    private Course saveInternal(Course course) {
+        course = courseRepository.save(course);
+        return course;
+    }
 }

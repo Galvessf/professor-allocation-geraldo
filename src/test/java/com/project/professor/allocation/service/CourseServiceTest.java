@@ -1,12 +1,13 @@
 package com.project.professor.allocation.service;
 
-import com.project.professor.allocation.entity.Course;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 
-import java.util.List;
+import com.project.professor.allocation.entity.Course;
 
 @SpringBootTest
 @TestPropertySource(locations = "classpath:application.properties")
@@ -42,7 +43,7 @@ public class CourseServiceTest {
         Long id = 1L;
 
         // Act
-        Course course = (Course) courseService.findAll(id);
+        Course course = courseService.findById(id);
 
         // Print
         System.out.println(course);
