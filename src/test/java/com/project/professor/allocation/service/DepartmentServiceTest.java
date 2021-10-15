@@ -13,82 +13,73 @@ import com.project.professor.allocation.entity.Department;
 @TestPropertySource(locations = "classpath:application.properties")
 public class DepartmentServiceTest {
 
-	@Autowired
-	DepartmentService departmentService;
+    @Autowired
+    DepartmentService departmentService;
 
-	@Test
-	public void findAll() {
-		// Act
-		List<Department> departments = departmentService.findAll(null);
+       @Test
+    public void findAllByName() {
+        // Arrange
+        String name = "department";
 
-		// Print
-		departments.forEach(System.out::println);
-	}
+        // Act
+        List<Department> departments = departmentService.findAll(name);
 
-	@Test
-	public void findAllByName() {
-		// Arrange
-		String name = "department";
+        // Print
+        departments.forEach(System.out::println);
+    }
 
-		// Act
-		List<Department> departments = (List<Department>) departmentService.findById(name);
+    @Test
+    public void findById() {
+        // Arrange
+        Long id = 1L;
 
-		// Print
-		departments.forEach(System.out::println);
-	}
+        // Act
+        Department department = departmentService.findById(id);
 
-	@Test
-	public void findById() {
-		// Arrange
-		Long id = 1L;
+        // Print
+        System.out.println(department);
+    }
 
-		// Act
-		Department department = (Department) departmentService.findAll(id);
+    @Test
+    public void save() {
+        // Arrange
+        Department department = new Department();
+        department.setId(null);
+        department.setName("Department 1");
 
-		// Print
-		System.out.println(department);
-	}
+        // Act
+        department = departmentService.save(department);
 
-	@Test
-	public void save() {
-		// Arrange
-		Department department = new Department();
-		department.setId(null);
-		department.setName("Department 1");
+        // Print
+        System.out.println(department);
+    }
 
-		// Act
-		department = departmentService.save(department);
+    @Test
+    public void update() {
+        // Arrange
+        Department department = new Department();
+        department.setId(1L);
+        department.setName("Department 2");
 
-		// Print
-		System.out.println(department);
-	}
+        // Act
+        department = departmentService.update(department);
 
-	@Test
-	public void update() {
-		// Arrange
-		Department department = new Department();
-		department.setId(1L);
-		department.setName("Department 2");
+        // Print
+        System.out.println(department);
+    }
 
-		// Act
-		department = departmentService.update(department);
+    @Test
+    public void deleteById() {
+        // Arrange
+        Long id = 1L;
 
-		// Print
-		System.out.println(department);
-	}
+        // Act
+        departmentService.deleteById(id);
+    }
 
-	@Test
-	public void deleteById() {
-		// Arrange
-		Long id = 1L;
-
-		// Act
-		departmentService.deleteById(id);
-	}
-
-	@Test
-	public void deleteAll() {
-		// Act
-		departmentService.deleteAll();
-	}
+    @Test
+    public void deleteAll() {
+        // Act
+        departmentService.deleteAll();
+    }
 }
