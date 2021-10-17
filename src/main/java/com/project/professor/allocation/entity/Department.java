@@ -1,5 +1,7 @@
 package com.project.professor.allocation.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -45,5 +47,10 @@ public class Department {
 	@Override
 	public String toString() {
 		return "Department [id=" + id + ", name=" + name + "]";
+	}
+
+	public void setProfessors(List<Professor> professors) {
+		// TODO Auto-generated method stub
+		
 	}
 }

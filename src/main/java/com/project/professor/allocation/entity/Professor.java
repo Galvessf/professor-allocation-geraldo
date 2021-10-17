@@ -1,5 +1,7 @@
 package com.project.professor.allocation.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -90,5 +92,10 @@ public class Professor {
 	public Professor orElse(Object object) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public void setAllocations(List<Allocation> allocations) {
+		// TODO Auto-generated method stub
+		
 	}
 }
