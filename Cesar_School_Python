@@ -1,0 +1,56 @@
+# Função para registrar votos em um arquivo .txt
+def registrar_votos():
+    with open("votos.txt", "w") as arquivo:
+        for i in range(5):
+            voto = input(f"Digite o código do candidato (1 para Bart, 2 para Homer) para o eleitor {i+1}: ")
+            arquivo.write(voto + "\n")
+
+# Função para ler e analisar os votos
+def apurar_resultado():
+    with open("votos.txt", "r") as arquivo:
+        votos = arquivo.read().splitlines()
+
+    # Inicializa contadores para Bart, Homer e votos nulos
+    votos_bart = 0
+    votos_homer = 0
+    votos_nulos = 0
+
+    for voto in votos:
+        if voto == "1":
+            votos_bart += 1
+        elif voto == "2":
+            votos_homer += 1
+        else:
+            votos_nulos += 1
+
+    # Determina o candidato mais votado
+    if votos_bart > votos_homer:
+        candidato_mais_votado = "Bart"
+        quantidade_mais_votado = votos_bart
+    elif votos_homer > votos_bart:
+        candidato_mais_votado = "Homer"
+        quantidade_mais_votado = votos_homer
+    else:
+        candidato_mais_votado = "Empate"
+        quantidade_mais_votado = votos_bart
+
+    # Determina o candidato menos votado
+    if votos_bart < votos_homer:
+        candidato_menos_votado = "Bart"
+        quantidade_menos_votado = votos_bart
+    elif votos_homer < votos_bart:
+        candidato_menos_votado = "Homer"
+        quantidade_menos_votado = votos_homer
+    else:
+        candidato_menos_votado = "Empate"
+        quantidade_menos_votado = votos_bart
+
+    # Exibe os resultados
+    print(f"Resultado da votação:")
+    print(f"Candidato mais votado: {candidato_mais_votado} com {quantidade_mais_votado} votos")
+    print(f"Candidato menos votado: {candidato_menos_votado} com {quantidade_menos_votado} votos")
+    print(f"Votos nulos: {votos_nulos}")
+
+# Chama as funções para registrar votos e apurar o resultado
+registrar_votos()
+apurar_resultado()
