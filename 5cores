@@ -1,0 +1,53 @@
+import random
+
+# Definição das cores disponíveis
+CORES = ['vermelho', 'azul', 'verde', 'amarelo', 'roxo']
+
+def gera_tabuleiro():
+    """ Gera um tabuleiro 5x5 com cores únicas em cada linha e coluna. """
+    tabuleiro = []
+
+    # Inicializa o tabuleiro com cores aleatórias em cada linha
+    for _ in range(5):
+        linha = random.sample(CORES, 5)  # Seleciona 5 cores aleatórias sem repetição
+        tabuleiro.append(linha)
+
+    # Verifica e ajusta as colunas para garantir que não haja cores repetidas
+    for coluna in range(5):
+        cores_na_coluna = [tabuleiro[linha][coluna] for linha in range(5)]
+        cores_disponiveis = [cor for cor in CORES if cor not in cores_na_coluna]
+
+        # Se alguma cor da coluna se repetir, troca por uma cor disponível
+        for linha in range(5):
+            if tabuleiro[linha][coluna] in cores_na_coluna:
+                tabuleiro[linha][coluna] = random.choice(cores_disponiveis)
+                cores_disponiveis.remove(tabuleiro[linha][coluna])
+
+    return tabuleiro
+
+def imprime_tabuleiro(tabuleiro):
+    """ Imprime o tabuleiro 5x5 de cores. """
+    for linha in tabuleiro:
+        print('\t'.join(linha))
+
+def verifica_vitoria(tabuleiro, cor_alvo):
+    """ Verifica se há uma linha de 5 cores iguais no tabuleiro. """
+    for linha in tabuleiro:
+        if all(cor == cor_alvo for cor in linha):
+            return True
+    return False
+
+def main():
+    tabuleiro = gera_tabuleiro()
+    imprime_tabuleiro(tabuleiro)
+
+    cor_alvo = random.choice(CORES)  # Escolhe aleatoriamente a cor alvo para vencer
+    print(f"\nTente alinhar 5 cores '{cor_alvo}' em uma linha para vencer!")
+
+    if verifica_vitoria(tabuleiro, cor_alvo):
+        print(f"\nParabéns! Você alinhou 5 cores '{cor_alvo}' em uma linha.")
+    else:
+        print("\nNão foi dessa vez. Tente novamente!")
+
+if __name__ == "__main__":
+    main()
