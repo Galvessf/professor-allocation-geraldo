@@ -1,0 +1,56 @@
+def gera_quadrado_magico(n):
+    quadrado = [[0] * n for _ in range(n)]
+    num = 1
+    i, j = 0, n // 2
+
+    while num <= n * n:
+        quadrado[i][j] = num
+        num += 1
+        novo_i, novo_j = (i - 1) % n, (j + 1) % n
+        if quadrado[novo_i][novo_j]:
+            i += 1
+        else:
+            i, j = novo_i, novo_j
+
+    return quadrado
+
+def imprime_quadrado(quadrado):
+    n = len(quadrado)
+    for linha in quadrado:
+        print("\t".join(f"{num:2}" for num in linha))
+
+def verifica_quadrado_magico(quadrado):
+    n = len(quadrado)
+    soma_magica = n * (n**2 + 1) // 2
+
+    # Verifica linhas e colunas
+    for i in range(n):
+        if sum(quadrado[i]) != soma_magica:
+            return False
+        if sum(quadrado[j][i] for j in range(n)) != soma_magica:
+            return False
+
+    # Verifica diagonais
+    if sum(quadrado[i][i] for i in range(n)) != soma_magica:
+        return False
+    if sum(quadrado[i][n - 1 - i] for i in range(n)) != soma_magica:
+        return False
+
+    return True
+
+def main():
+    n = int(input("Digite a ordem do quadrado mágico (deve ser ímpar): "))
+    if n % 2 == 0:
+        print("A ordem do quadrado mágico deve ser ímpar.")
+        return
+
+    quadrado_magico = gera_quadrado_magico(n)
+    imprime_quadrado(quadrado_magico)
+
+    if verifica_quadrado_magico(quadrado_magico):
+        print("Este é um quadrado mágico!")
+    else:
+        print("Este NÃO é um quadrado mágico!")
+
+if __name__ == "__main__":
+    main()
